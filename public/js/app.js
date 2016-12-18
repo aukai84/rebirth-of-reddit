@@ -2,6 +2,12 @@
 
 function redditRequest() {
   let videoGameArray = JSON.parse(this.responseText).data.children;
+
+  for(let i = 0; i < videoGameArray.length; i++){
+    let videoGamePage = videoGameArray[i].data;
+    console.log(videoGamePage);
+    createCards(videoGamePage);
+  }
 }
 
 const contentContainer = document.getElementById("content-container");
