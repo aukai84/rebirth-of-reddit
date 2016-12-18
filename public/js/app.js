@@ -4,6 +4,29 @@ function redditRequest() {
   let videoGameArray = JSON.parse(this.responseText).data.children;
 }
 
+const contentContainer = document.getElementById("content-container");
+
+function createCards(page) {
+  let cardDiv = document.createElement('div');
+  cardDiv.className = "card-div";
+  let cardImg = document.createElement('IMG');
+  cardImg.src = page.thumbnail;
+  let titleParagraph = document.createElement('p');
+  let authorLink = document.createElement('a');
+  authorLink.setAttribute("href", `https://www.reddit.com/user/${page.author}`);
+
+  let cardLink = document.createElement('a');
+  cardLink.setAttribute("href", page.url);
+  cardLink.appendChild(cardImg);
+
+  titleParagraph.innerHTML = page.title;
+  authorLink.innerHTML = page.author;
+  cardDiv.appendChild(cardLink);
+  cardDiv.appendChild(titleParagraph);
+  cardDiv.appendChild(authorLink);
+
+  contentContainer.appendChild(cardDiv);
+}
 
 requestHelper("https://www.reddit.com/r/gaming.json", redditRequest);
 
