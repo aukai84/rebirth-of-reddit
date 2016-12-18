@@ -15,21 +15,31 @@ const contentContainer = document.getElementById("content-container");
 function createCards(page) {
   let cardDiv = document.createElement('div');
   cardDiv.className = "card-div";
+
   let cardImg = document.createElement('IMG');
   cardImg.src = page.thumbnail;
+
+  let cardImgLink = document.createElement('a');
+  cardImgLink.setAttribute("href", page.url);
+  cardImgLink.appendChild(cardImg);
+
+
+  let titleLink = document.createElement('a');
+  titleLink.setAttribute("href", page.url);
   let titleParagraph = document.createElement('p');
+  titleParagraph.innerHTML = page.title;
+  titleLink.appendChild(titleParagraph);
+
+  let authorDiv = document.createElement('div');
+  authorDiv.innerHTML = "Submitted By ";
   let authorLink = document.createElement('a');
   authorLink.setAttribute("href", `https://www.reddit.com/user/${page.author}`);
-
-  let cardLink = document.createElement('a');
-  cardLink.setAttribute("href", page.url);
-  cardLink.appendChild(cardImg);
-
-  titleParagraph.innerHTML = page.title;
   authorLink.innerHTML = page.author;
-  cardDiv.appendChild(cardLink);
-  cardDiv.appendChild(titleParagraph);
-  cardDiv.appendChild(authorLink);
+  authorDiv.appendChild(authorLink);
+
+  cardDiv.appendChild(cardImgLink);
+  cardDiv.appendChild(titleLink);
+  cardDiv.appendChild(authorDiv);
 
   contentContainer.appendChild(cardDiv);
 }
