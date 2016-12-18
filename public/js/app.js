@@ -1,5 +1,9 @@
 //jshint esversion: 6
 
+function redditRequest() {
+  let videoGameArray = JSON.parse(this.responseText).data.children;
+}
+
 
 
 
