@@ -37,10 +37,18 @@ function createCards(page) {
   authorLink.setAttribute("href", `https://www.reddit.com/user/${page.author}`);
   authorLink.innerHTML = page.author;
   authorDiv.appendChild(authorLink);
+  let votedParagraph = document.createElement('p');
+  votedParagraph.innerHTML = `Votes ${page.score}`;
+  authorDiv.appendChild(votedParagraph);
+
+  let commentLink = document.createElement('a');
+  commentLink.setAttribute("href", `https://www.reddit.com${page.permalink}`);
+  commentLink.innerHTML = `${page.num_comments} comments`;
 
   cardDiv.appendChild(cardImgLink);
   cardDiv.appendChild(titleLink);
   cardDiv.appendChild(authorDiv);
+  cardDiv.appendChild(commentLink);
 
   contentContainer.appendChild(cardDiv);
 }
