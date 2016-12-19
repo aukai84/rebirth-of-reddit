@@ -1,0 +1,17 @@
+$light-color: #d3d3d3;
+
+#content-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.card-div {
+  background-color: $light-color;
+  max-width: 300px;
+  height: auto;
+  margin: 20px;
+}
+
+.card-image {
+  margin: 10px;
+}
