@@ -27,19 +27,25 @@ function createCards(page) {
   let titleLink = document.createElement('a');
   titleLink.setAttribute("href", page.url);
   let titleParagraph = document.createElement('p');
+  titleParagraph.className = "title-paragraph";
   titleParagraph.innerHTML = page.title;
   titleLink.appendChild(titleParagraph);
-  //page.score = number of votes
-  //page.num_comments = number of comments...need to link to comments section
+
   let authorDiv = document.createElement('div');
   authorDiv.innerHTML = "Submitted By ";
   let authorLink = document.createElement('a');
   authorLink.setAttribute("href", `https://www.reddit.com/user/${page.author}`);
   authorLink.innerHTML = page.author;
+  authorLink.className = "author-link";
   authorDiv.appendChild(authorLink);
+
   let votedParagraph = document.createElement('p');
   votedParagraph.innerHTML = `Votes ${page.score}`;
+  votedParagraph.className = "voted-paragraph";
   authorDiv.appendChild(votedParagraph);
+
+  let timeElapsed = document.createElement('p');
+  //timeElapsed.innerHTML = moment.unix(page.created_utc).fromNow();
 
   let commentLink = document.createElement('a');
   commentLink.setAttribute("href", `https://www.reddit.com${page.permalink}`);

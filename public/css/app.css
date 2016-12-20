@@ -1,6 +1,6 @@
 #content-container {
   display: flex;
-  flex-direction: row; }
+  flex-flow: row wrap; }
 
 .card-div {
   background-color: #d3d3d3;
