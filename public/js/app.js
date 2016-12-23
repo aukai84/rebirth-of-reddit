@@ -9,6 +9,21 @@ function redditRequest() {
     createCards(videoGamePage);
   }
 }
+function createDisplayElement(page, card) {
+  let url = page.preview.images[0].source.url;
+  if(url.match(/\.(jpg)/g)){
+  let cardImg = document.createElement('div');
+  cardImg.className = "card-image";
+  cardImg.style.backgroundImage = `url(${page.preview.images[0].source.url})`;
+  let cardImgLink = document.createElement('a');
+  cardImgLink.className = "card-image-link";
+  cardImgLink.setAttribute("href", page.url);
+  cardImgLink.appendChild(cardImg);
+  card.appendChild(cardImgLink);
+  // } else if(url.match(/\.(gif)/g)){
+  //   let cardImg = document.createElement
+  }
+}
 
 const cardContainer = document.getElementById("card-container");
 
@@ -16,13 +31,11 @@ function createCards(page) {
   let cardDiv = document.createElement('div');
   cardDiv.className = "card-div";
 
-  let cardImg = document.createElement('IMG');
-  cardImg.className = "card-image";
-  cardImg.src = page.thumbnailp;
-  let cardImgLink = document.createElement('a');
-  cardImgLink.setAttribute("href", page.url);
-  cardImgLink.appendChild(cardImg);
+  let aspectDiv = document.createElement('div');
+  aspectDiv.className = "aspect-div";
+  cardDiv.appendChild(aspectDiv);
 
+  createDisplayElement(page, cardDiv);
 
   let titleLink = document.createElement('a');
   titleLink.setAttribute("href", page.url);
@@ -51,11 +64,9 @@ function createCards(page) {
   commentLink.setAttribute("href", `https://www.reddit.com${page.permalink}`);
   commentLink.innerHTML = `${page.num_comments} comments`;
 
-  cardDiv.appendChild(cardImgLink);
   cardDiv.appendChild(titleLink);
   cardDiv.appendChild(authorDiv);
   cardDiv.appendChild(commentLink);
-
   cardContainer.appendChild(cardDiv);
 }
 
