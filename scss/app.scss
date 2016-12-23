@@ -1,6 +1,10 @@
 $light-color: #d3d3d3;
 * {
   box-sizing: border-box;
+  top: 0px;
+  left: 0px;
+  padding: 0px;
+  margin: 0px;
 
 }
 html {
@@ -9,7 +13,7 @@ html {
 }
 
 header {
-  background: url('./../assets/header_bg.svg');
+  background-color: white;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -35,6 +39,16 @@ body {
   flex-flow: row;
   background-color: #3A3A3C;
   color: #818285;
+  height: 2rem;
+  font-family: 'Oswald', sans-serif;
+}
+
+span {
+  display: flex;
+  flex: 1 0 33%;
+  justify-content: center;
+  align-items: center;
+  border-right: solid 2px #818285;
 }
 
 #card-container {
@@ -42,6 +56,7 @@ body {
   flex-flow: row wrap;
   margin: auto;
   box-sizing: border-box;
+  padding: 15px;
 }
 
 .card-div {
