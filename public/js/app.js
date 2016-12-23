@@ -10,7 +10,7 @@ function redditRequest() {
   }
 }
 
-const contentContainer = document.getElementById("content-container");
+const cardContainer = document.getElementById("card-container");
 
 function createCards(page) {
   let cardDiv = document.createElement('div');
@@ -18,7 +18,7 @@ function createCards(page) {
 
   let cardImg = document.createElement('IMG');
   cardImg.className = "card-image";
-  cardImg.src = page.thumbnail;
+  cardImg.src = page.thumbnailp;
   let cardImgLink = document.createElement('a');
   cardImgLink.setAttribute("href", page.url);
   cardImgLink.appendChild(cardImg);
@@ -37,15 +37,15 @@ function createCards(page) {
   authorLink.setAttribute("href", `https://www.reddit.com/user/${page.author}`);
   authorLink.innerHTML = page.author;
   authorLink.className = "author-link";
+  let timeElapsed = document.createElement('p');
+  timeElapsed.innerHTML = moment.unix(page.created_utc).fromNow();
   authorDiv.appendChild(authorLink);
+  authorDiv.appendChild(timeElapsed);
 
   let votedParagraph = document.createElement('p');
   votedParagraph.innerHTML = `Votes ${page.score}`;
   votedParagraph.className = "voted-paragraph";
   authorDiv.appendChild(votedParagraph);
-
-  let timeElapsed = document.createElement('p');
-  //timeElapsed.innerHTML = moment.unix(page.created_utc).fromNow();
 
   let commentLink = document.createElement('a');
   commentLink.setAttribute("href", `https://www.reddit.com${page.permalink}`);
@@ -56,7 +56,7 @@ function createCards(page) {
   cardDiv.appendChild(authorDiv);
   cardDiv.appendChild(commentLink);
 
-  contentContainer.appendChild(cardDiv);
+  cardContainer.appendChild(cardDiv);
 }
 
 requestHelper("https://www.reddit.com/r/gaming.json", redditRequest);
