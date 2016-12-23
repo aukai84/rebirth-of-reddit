@@ -38,6 +38,7 @@ function createCards(page) {
   createDisplayElement(page, cardDiv);
 
   let infoDiv = document.createElement('div');
+  infoDiv.className = "info-div";
 
   let titleLink = document.createElement('a');
   titleLink.setAttribute("href", page.url);
