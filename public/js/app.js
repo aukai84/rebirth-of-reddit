@@ -37,6 +37,8 @@ function createCards(page) {
 
   createDisplayElement(page, cardDiv);
 
+  let infoDiv = document.createElement('div');
+
   let titleLink = document.createElement('a');
   titleLink.setAttribute("href", page.url);
   let titleParagraph = document.createElement('p');
@@ -50,6 +52,7 @@ function createCards(page) {
   authorLink.setAttribute("href", `https://www.reddit.com/user/${page.author}`);
   authorLink.innerHTML = page.author;
   authorLink.className = "author-link";
+
   let timeElapsed = document.createElement('p');
   timeElapsed.innerHTML = moment.unix(page.created_utc).fromNow();
   authorDiv.appendChild(authorLink);
@@ -64,9 +67,10 @@ function createCards(page) {
   commentLink.setAttribute("href", `https://www.reddit.com${page.permalink}`);
   commentLink.innerHTML = `${page.num_comments} comments`;
 
-  cardDiv.appendChild(titleLink);
-  cardDiv.appendChild(authorDiv);
-  cardDiv.appendChild(commentLink);
+  infoDiv.appendChild(titleLink);
+  infoDiv.appendChild(authorDiv);
+  infoDiv.appendChild(commentLink);
+  cardDiv.appendChild(infoDiv);
   cardContainer.appendChild(cardDiv);
 }
 
