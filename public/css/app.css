@@ -83,7 +83,7 @@ span {
   display: flex;
   top: 0;
   left: 0;
-  height: 200px;
+  height: 150px;
   width: calc(100% - 60px);
   justify-content: center;
   background-repeat: no-repeat;
@@ -91,4 +91,6 @@ span {
   margin: 30px; }
 
 .info-div {
-  padding-top: 15px; }
+  padding-top: 15px;
+  display: flex;
+  flex-flow: row; }
