@@ -24,10 +24,7 @@ function createDisplayElement(page, card) {
   cardImgLink.setAttribute("href", page.url);
   cardImgLink.appendChild(cardImg);
   card.appendChild(cardImgLink);
-  // } else if(url.match(/\.(gif)/g)){
-  //   let cardImg = document.createElement
-
-}
+  }
 
 const cardContainer = document.getElementById("card-container");
 
@@ -80,12 +77,11 @@ function createCards(page) {
 }
 
 requestHelper("https://www.reddit.com/r/gaming.json", redditRequest);
-requestHelper("https://www.reddit.com/r/random", randomRequest);
-function randomRequest(maybe) {
-  let randomPage = JSON.parse(this.responseText);
-  console.log(randomPage);
+// function randomRequest(maybe) {
+//   let randomPage = JSON.parse(this.responseText);
+//   console.log(randomPage);
 
-}
+// }
 
 function requestHelper(link, listener) {
   cardContainer.innerHTML = '';

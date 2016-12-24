@@ -58,9 +58,6 @@ span {
   box-sizing: border-box;
   padding: 15px;
   justify-content: center; }
-  @media screen and (min-width: 700px) {
-    #card-container {
-      justify-content: space-between; } }
 
 .card-div {
   background-color: white;
@@ -86,7 +83,7 @@ span {
   display: flex;
   top: 0;
   left: 0;
-  height: 60%;
+  height: 200px;
   width: calc(100% - 60px);
   justify-content: center;
   background-repeat: no-repeat;
