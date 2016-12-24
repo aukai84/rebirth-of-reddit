@@ -29,8 +29,9 @@ header {
   background-position: center left;
   background-repeat: no-repeat;
   display: flex;
-  height: 54px;
+  height: 50px;
   width: 100%;
+  margin-left: 10px;
 }
 
 body {
@@ -65,14 +66,22 @@ span {
   margin: auto;
   box-sizing: border-box;
   padding: 15px;
+  justify-content: center;
+
+  @media screen and (min-width: 700px){
+
+    justify-content: space-between;
+  }
 }
+
+
 
 .card-div {
   background-color: white;
   display: flex;
   flex-flow: column;
-  height: 100%;
-  width: 100%;
+  height: 350px;
+  width: 250px;
   margin: 5px auto;
   position:relative;
   border-width: 0;
@@ -80,7 +89,7 @@ span {
 }
 
 .aspect-div{
-  width: 60%;
+  width: 100%;
   display:flex;
   padding-bottom: 75%;
   position: relative;
@@ -93,11 +102,11 @@ span {
   display:flex;
   top: 0; left: 0;
   height: 60%;
-  width: calc(100% - 100px);
+  width: calc(100% - 60px);
   justify-content: center;
   background-repeat: no-repeat;
   position: absolute;
-  margin: 50px;
+  margin: 30px;
 }
 
 .info-div {
